@@ -1,3 +1,5 @@
+<h2>{{ $modo }} Empleado</h2>
+
 <label for="nombre">Nombre</label>
 <input type="text" name="nombre" id="nombre" value="{{ isset($empleado->nombre) ? $empleado->nombre : '' }}"><br>
 

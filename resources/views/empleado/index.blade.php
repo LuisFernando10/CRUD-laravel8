@@ -1,4 +1,8 @@
 Listado Empleados
+
+@if(session::has('mensaje'))
+    {{ session::get('mensaje') }}
+@endif
 <a href="{{ url('empleado/create') }}">Crear Empleado</a>
 <table class="table table-light">
     <thead class="thead-light">
