@@ -4,7 +4,7 @@
         @if(Session::has('mensaje') != null)
             {{ Session::get('mensaje') }}
         @endif
-        <a href="{{ url('empleado/create') }}">Crear Empleado</a>
+        <a href="{{ url('empleado/create') }}" class="btn btn-success">Crear Empleado</a><br><br>
         <table class="table table-light">
             <thead class="thead-light">
                 <tr>
@@ -22,19 +22,19 @@
                 <tr>
                     <td>{{ $empleado->id  }}</td>
                     <td>
-                        <img src="{{ asset('storage').'/'.$empleado->foto }}" alt="Foto" width="100">
+                        <img src="{{ asset('storage').'/'.$empleado->foto }}" alt="Foto" width="100" class="img-thumbnail img-fluid">
                     </td>
                     <td>{{ $empleado->nombre  }}</td>
                     <td>{{ $empleado->apellido_paterno  }}</td>
                     <td>{{ $empleado->apellido_materno  }}</td>
                     <td>{{ $empleado->correo  }}</td>
                     <td>
-                        <a href="{{ url('/empleado/'.$empleado->id.'/edit/') }}">Editar</a>
+                        <a href="{{ url('/empleado/'.$empleado->id.'/edit/') }}" class="btn btn-warning">Editar</a>
 
-                        <form action="{{ url('/empleado/'.$empleado->id) }}" method="post">
+                        <form action="{{ url('/empleado/'.$empleado->id) }}" method="post" class="d-inline">
                             @csrf
                             {{ method_field('DELETE') }}
-                            <input type="submit" value="Borrar" onclick="return confirm('¿Está seguro?')">
+                            <input type="submit" class="btn btn-danger" value="Borrar" onclick="return confirm('¿Está seguro?')">
                         </form>
                     </td>
                 </tr>

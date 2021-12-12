@@ -18,16 +18,16 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/empleado', function () {
+/*Route::get('/empleado', function () {
     return view('empleado.index');
 });
 
-Route::get('/empleado/create', [EmpleadoController::class, 'create']);
+Route::get('/empleado/create', [EmpleadoController::class, 'create']);*/
 
 # Acceder a todas las URL
-Route::resource('empleado', EmpleadoController::class);
+Route::resource('empleado', EmpleadoController::class)->middleware('auth');
 
-Auth::routes();
+Auth::routes(['register' => false, 'reset' => false]);
 
 Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
 
