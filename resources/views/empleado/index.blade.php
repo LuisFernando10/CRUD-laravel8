@@ -16,7 +16,9 @@ Listado Empleados
         @foreach( $empleados as $empleado )
         <tr>
             <td>{{ $empleado->id  }}</td>
-            <td>{{ $empleado->foto  }}</td>
+            <td>
+                <img src="{{ asset('storage').'/'.$empleado->foto }}" alt="Foto">
+            </td>
             <td>{{ $empleado->nombre  }}</td>
             <td>{{ $empleado->apellido_paterno  }}</td>
             <td>{{ $empleado->apellido_materno  }}</td>
