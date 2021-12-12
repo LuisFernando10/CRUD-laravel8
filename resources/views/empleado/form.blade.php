@@ -1,23 +1,35 @@
 <h2>{{ $modo }} Empleado</h2>
 
+@if(count($errors) > 0)
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>
+                    {{ $error }}
+                </li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="form-group">
     <label for="nombre">Nombre</label>
-    <input type="text" class="form-control" name="nombre" id="nombre" value="{{ isset($empleado->nombre) ? $empleado->nombre : '' }}">
+    <input type="text" class="form-control" name="nombre" id="nombre" value="{{ isset($empleado->nombre) ? $empleado->nombre : old('nombre') }}">
 </div>
 
 <div class="form-group">
     <label for="apellido_paterno">Apellido Paterno</label>
-    <input type="text" class="form-control" name="apellido_paterno" id="apellido_paterno" value="{{ isset($empleado->apellido_paterno) ? $empleado->apellido_paterno : '' }}">
+    <input type="text" class="form-control" name="apellido_paterno" id="apellido_paterno" value="{{ isset($empleado->apellido_paterno) ? $empleado->apellido_paterno : old('apellido_paterno') }}">
 </div>
 
 <div class="form-group">
     <label for="apellido_materno">Apellido Materno</label>
-    <input type="text" class="form-control" name="apellido_materno" id="apellido_materno" value="{{ isset($empleado->apellido_materno) ? $empleado->apellido_materno : '' }}">
+    <input type="text" class="form-control" name="apellido_materno" id="apellido_materno" value="{{ isset($empleado->apellido_materno) ? $empleado->apellido_materno : old('apellido_materno') }}">
 </div>
 
 <div class="form-group">
     <label for="correo">Correo</label>
-    <input type="text" class="form-control" name="correo" id="correo" value="{{ isset($empleado->correo) ? $empleado->correo : '' }}">
+    <input type="text" class="form-control" name="correo" id="correo" value="{{ isset($empleado->correo) ? $empleado->correo : old('correo') }}">
 </div>
 
 <div class="form-group">
