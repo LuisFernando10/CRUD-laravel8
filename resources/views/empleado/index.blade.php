@@ -9,6 +9,7 @@ Listado Empleados
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
             <th>Email</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -20,7 +21,15 @@ Listado Empleados
             <td>{{ $empleado->apellido_paterno  }}</td>
             <td>{{ $empleado->apellido_materno  }}</td>
             <td>{{ $empleado->correo  }}</td>
-            <td>Editar | Borrar</td>
+            <td>
+                <a href="{{ url('/empleado/'.$empleado->id.'/edit/') }}">Editar</a>
+
+                <form action="{{ url('/empleado/'.$empleado->id) }}" method="post">
+                    @csrf
+                    {{ method_field('DELETE') }}
+                    <input type="submit" value="Borrar" onclick="return confirm('¿Está seguro?')">
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>

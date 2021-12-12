@@ -63,9 +63,10 @@ class EmpleadoController extends Controller
      * @param  \App\Models\empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function edit(empleado $empleado)
+    public function edit($id)
     {
-        //
+        $empleado = empleado::findOrFail($id);
+        return view('empleado.edit', compact('empleado'));
     }
 
     /**
@@ -86,8 +87,9 @@ class EmpleadoController extends Controller
      * @param  \App\Models\empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function destroy(empleado $empleado)
+    public function destroy($id)
     {
-        //
+        empleado::destroy($id);
+        return redirect('empleado');
     }
 }
