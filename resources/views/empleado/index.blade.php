@@ -17,7 +17,7 @@ Listado Empleados
         <tr>
             <td>{{ $empleado->id  }}</td>
             <td>
-                <img src="{{ asset('storage').'/'.$empleado->foto }}" alt="Foto">
+                <img src="{{ asset('storage').'/'.$empleado->foto }}" alt="Foto" width="100">
             </td>
             <td>{{ $empleado->nombre  }}</td>
             <td>{{ $empleado->apellido_paterno  }}</td>
