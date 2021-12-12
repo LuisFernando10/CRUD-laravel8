@@ -16,4 +16,5 @@
 @endif
 <input type="file" name="foto" id="foto"><br>
 
-<input type="submit" value="Guardar">
+<input type="submit" value="Guardar"><br>
+<a href="{{ url('empleado/') }}">Regresar</a>
