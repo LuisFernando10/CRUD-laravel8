@@ -76,9 +76,13 @@ class EmpleadoController extends Controller
      * @param  \App\Models\empleado  $empleado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, empleado $empleado)
+    public function update(Request $request, $id)
     {
-        //
+        $datos_empleado = request()->except(['_token','_method']);
+        empleado::where('id','=',$id)->update($datos_empleado);
+
+        $empleado = empleado::findOrFail($id);
+        return view('empleado.edit', compact('empleado'));
     }
 
     /**
